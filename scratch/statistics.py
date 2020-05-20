@@ -1,4 +1,3 @@
-
 num_friends = [100.0,49,41,40,25,21,21,19,19,18,18,16,15,15,15,15,14,14,13,13,13,13,12,12,11,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,8,8,8,8,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 
 from collections import Counter
@@ -12,10 +11,9 @@ plt.axis([0, 101, 0, 25])
 plt.title("Histogram of Friend Counts")
 plt.xlabel("# of friends")
 plt.ylabel("# of people")
-# plt.show()
+plt.show()
 
 num_points = len(num_friends)               # 204
-
 
 assert num_points == 204
 
@@ -31,11 +29,9 @@ smallest_value = sorted_values[0]           # 1
 second_smallest_value = sorted_values[1]    # 1
 second_largest_value = sorted_values[-2]    # 49
 
-
 assert smallest_value == 1
 assert second_smallest_value == 1
 assert second_largest_value == 49
-
 
 from typing import List
 
@@ -67,7 +63,7 @@ def median(v: List[float]) -> float:
 assert median([1, 10, 2, 9, 5]) == 5
 assert median([1, 9, 2, 10]) == (2 + 9) / 2
 
-
+# Compute median number of friends
 assert median(num_friends) == 6
 
 def quantile(xs: List[float], p: float) -> float:
@@ -89,6 +85,7 @@ def mode(x: List[float]) -> List[float]:
 
 assert set(mode(num_friends)) == {1, 6}
 
+# Dispersion:
 # "range" already means something in Python, so we'll use a different name
 def data_range(xs: List[float]) -> float:
     return max(xs) - min(xs)
@@ -167,4 +164,3 @@ daily_hours_good = [dm / 60 for dm in daily_minutes_good]
 
 assert 0.57 < correlation(num_friends_good, daily_minutes_good) < 0.58
 assert 0.57 < correlation(num_friends_good, daily_hours_good) < 0.58
-
